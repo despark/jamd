@@ -1,9 +1,9 @@
 {
-	"name": "openbuildings/jam",
+	"name": "despark/jamd",
 	"type": "kohana-module",
-	"description": "Small but feature rich ORM, has extensible models and builders, baked in upload functionality, supporting multiple backends (rackspace, ftp), polymorphic associations, form builders, nested forms, validators",
+	"description": "Despark JAM implementation for database-encrypted users",
 	"keywords": ["kohana", "database", "ORM", "upload", "form builder", "validation"],
-	"homepage": "https://github.com/OpenBuildings/jam",
+	"homepage": "https://github.com/despark/jam",
 	"license": "BSD-3-Clause",
 	"authors": [
 		{
