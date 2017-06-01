@@ -469,9 +469,19 @@ abstract class Kohana_Jam {
 	{
 		if ( ! $key)
 			throw new Jam_Exception_Invalidargument(':model - no id specified', $model);
-
-		$collection = Jam::all($model);
-		$collection->where_key($key);
+		
+		/*** Decrypt the key for the user model *****/
+		if($model == "user" && filter_var($key, FILTER_VALIDATE_EMAIL)) {
+			$key = DesparkEncryptor::encrypt($key);
+			$collection = Jam::all($model);
+			$collection->where("email", "=", $key);
+			//echo DesparkEncryptor::decrypt("yCuduGZrJz2j/7+p0PnXB9EA4DvROkar");die();
+		} else {
+			$collection = Jam::all($model);
+			$collection->where_key($key);
+		}
+		
+		
 		return is_array($key) ? $collection : $collection->first();
 	}
 
